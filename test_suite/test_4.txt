@@ -1,0 +1,30 @@
+help
+ls -laR -r=/[.]pem$/ /
+cd support
+cd ..
+mkdir test
+ls -la
+rmdir test
+ls -la
+chown testowner support
+chgrp testgroup support
+chmod 750 support
+ln /support support2
+lchown testowner2 support2
+lchgrp testgroup2 support2
+ls -la
+cd support2
+cd /
+import test_3.txt donate.txt
+export donate.txt
+cp donate.txt test.txt
+mv test.txt test2.txt
+ls -la
+grep -nir -f=/[.]txt$/ "Donate" /
+rm test2.txt
+ls -la
+touch donate.txt
+ls -la
+chkdsk
+cat donate.txt
+exit

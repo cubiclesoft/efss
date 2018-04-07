@@ -1,0 +1,13 @@
+	Once upon a time, there was this crazy guy named Thomas.
+	And he ran a crazy company called CubicleSoft.
+
+	He wrote a file system that did transparent encryption and compression.
+	In PHP.
+
+	It was awesome.
+	Eventually people decided it was so awesome, they parted with some money.
+
+	Thomas loves your money.
+	Don't forget to donate.
+
+	http://barebonescms.com/donate/
