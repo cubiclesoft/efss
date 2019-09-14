@@ -24,7 +24,7 @@
 			"help" => array("arg" => false)
 		)
 	);
-	$args = ParseCommandLine($options);
+	$args = CLI::ParseCommandLine($options);
 
 	if (count($args["params"]) != 2 || isset($args["opts"]["help"]))
 	{

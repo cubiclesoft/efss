@@ -27,7 +27,7 @@
 					"help" => array("arg" => false)
 				)
 			);
-			$args = ParseCommandLine($options, $line);
+			$args = CLI::ParseCommandLine($options, $line);
 
 			$args["origopts"] = $args["opts"];
 		}
@@ -287,7 +287,7 @@
 				"help" => array("arg" => false)
 			)
 		);
-		$args = ParseCommandLine($options, $line);
+		$args = CLI::ParseCommandLine($options, $line);
 
 		if (count($args["params"]) != 1 || isset($args["opts"]["help"]))
 		{
@@ -339,7 +339,7 @@
 				"help" => array("arg" => false)
 			)
 		);
-		$args = ParseCommandLine($options, $line);
+		$args = CLI::ParseCommandLine($options, $line);
 
 		if (count($args["params"]) != 1 || isset($args["opts"]["help"]))
 		{
@@ -394,7 +394,7 @@
 				"help" => array("arg" => false)
 			)
 		);
-		$args = ParseCommandLine($options, $line);
+		$args = CLI::ParseCommandLine($options, $line);
 
 		if (count($args["params"]) != 1 || isset($args["opts"]["help"]))
 		{
@@ -447,7 +447,7 @@
 					"help" => array("arg" => false)
 				)
 			);
-			$args = ParseCommandLine($options, $line);
+			$args = CLI::ParseCommandLine($options, $line);
 		}
 
 		if (count($args["params"]) != 2 || isset($args["opts"]["help"]))
@@ -589,7 +589,7 @@
 					"help" => array("arg" => false)
 				)
 			);
-			$args = ParseCommandLine($options, $line);
+			$args = CLI::ParseCommandLine($options, $line);
 		}
 
 		if (count($args["params"]) != 2 || isset($args["opts"]["help"]))
@@ -731,7 +731,7 @@
 					"help" => array("arg" => false)
 				)
 			);
-			$args = ParseCommandLine($options, $line);
+			$args = CLI::ParseCommandLine($options, $line);
 		}
 
 		if (count($args["params"]) != 2 || isset($args["opts"]["help"]))
@@ -845,7 +845,7 @@
 				"help" => array("arg" => false)
 			)
 		);
-		$args = ParseCommandLine($options, $line);
+		$args = CLI::ParseCommandLine($options, $line);
 
 		if (count($args["params"]) != 2 || isset($args["opts"]["help"]))
 		{
@@ -885,7 +885,7 @@
 				"help" => array("arg" => false)
 			)
 		);
-		$args = ParseCommandLine($options, $line);
+		$args = CLI::ParseCommandLine($options, $line);
 
 		if (count($args["params"]) != 2 || isset($args["opts"]["help"]))
 		{
@@ -925,7 +925,7 @@
 				"help" => array("arg" => false)
 			)
 		);
-		$args = ParseCommandLine($options, $line);
+		$args = CLI::ParseCommandLine($options, $line);
 
 		if (!count($args["params"]) || count($args["params"]) > 2 || isset($args["opts"]["help"]))
 		{
@@ -979,7 +979,7 @@
 				"help" => array("arg" => false)
 			)
 		);
-		$args = ParseCommandLine($options, $line);
+		$args = CLI::ParseCommandLine($options, $line);
 
 		if (!count($args["params"]) || count($args["params"]) > 2 || isset($args["opts"]["help"]))
 		{
@@ -1033,7 +1033,7 @@
 				"help" => array("arg" => false)
 			)
 		);
-		$args = ParseCommandLine($options, $line);
+		$args = CLI::ParseCommandLine($options, $line);
 
 		if (count($args["params"]) != 2 || isset($args["opts"]["help"]))
 		{
@@ -1091,7 +1091,7 @@
 				"help" => array("arg" => false)
 			)
 		);
-		$args = ParseCommandLine($options, $line);
+		$args = CLI::ParseCommandLine($options, $line);
 
 		if (count($args["params"]) != 2 || isset($args["opts"]["help"]))
 		{
@@ -1168,7 +1168,7 @@
 					"help" => array("arg" => false)
 				)
 			);
-			$args = ParseCommandLine($options, $line);
+			$args = CLI::ParseCommandLine($options, $line);
 		}
 
 		if (count($args["params"]) != 1 || isset($args["opts"]["help"]))
@@ -1318,7 +1318,7 @@
 				"help" => array("arg" => false)
 			)
 		);
-		$args = ParseCommandLine($options, $line);
+		$args = CLI::ParseCommandLine($options, $line);
 
 		if (count($args["params"]) != 1 || isset($args["opts"]["help"]))
 		{
@@ -1375,7 +1375,7 @@
 					"help" => array("arg" => false)
 				)
 			);
-			$args = ParseCommandLine($options, $line);
+			$args = CLI::ParseCommandLine($options, $line);
 		}
 
 		if (count($args["params"]) != 2 || isset($args["opts"]["help"]))
@@ -1524,7 +1524,7 @@
 				"help" => array("arg" => false)
 			)
 		);
-		$args = ParseCommandLine($options, $line);
+		$args = CLI::ParseCommandLine($options, $line);
 
 		if (count($args["params"]) != 2 || isset($args["opts"]["help"]))
 		{
@@ -1578,7 +1578,7 @@
 				"help" => array("arg" => false)
 			)
 		);
-		$args = ParseCommandLine($options, $line);
+		$args = CLI::ParseCommandLine($options, $line);
 
 		if (count($args["params"]) != 1 || isset($args["opts"]["help"]))
 		{
@@ -1668,7 +1668,7 @@
 				"help" => array("arg" => false)
 			)
 		);
-		$args = ParseCommandLine($options, $line);
+		$args = CLI::ParseCommandLine($options, $line);
 
 		if (isset($args["opts"]["help"]))
 		{
@@ -1730,7 +1730,7 @@
 				"help" => array("arg" => false)
 			)
 		);
-		$args = ParseCommandLine($options, $line);
+		$args = CLI::ParseCommandLine($options, $line);
 
 		if (count($args["params"]) > 1 || isset($args["opts"]["help"]))
 		{
