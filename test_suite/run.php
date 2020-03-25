@@ -891,8 +891,8 @@
 		if ($str !== $str2)  $maxfail = $str;
 		else if ($maxsuccess === "")  $maxsuccess = $str;
 
-		for ($x = 0; $x < 8 && $str{$x} == "\x00"; $x++);
-		$str = substr($str, 0, $x) . chr(ord($str{$x}) - 1) . substr($str, $x + 1);
+		for ($x = 0; $x < 8 && $str[$x] == "\x00"; $x++);
+		$str = substr($str, 0, $x) . chr(ord($str[$x]) - 1) . substr($str, $x + 1);
 	}
 
 	echo "Numeric accuracy will tend to always fail around:\n\t0x" . bin2hex($maxfail) . " (" . number_format(EFSS::UnpackInt($maxfail), 0) . ")\n\n";

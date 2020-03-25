@@ -2235,7 +2235,7 @@
 
 				$referenced .= chr($byte);
 			}
-			$referenced{0} = chr(ord($referenced{0}) | 0xE0);
+			$referenced[0] = chr(ord($referenced[0]) | 0xE0);
 
 			// Read all blocks in the file system.
 			$ts = time();
@@ -2258,12 +2258,12 @@
 					{
 						if ($x2 > $numblocks || $x2 < 3 || $x2 == $x)  return array("success" => false, "error" => EFSS::Translate("Block %u references an out of range or invalid block %u.", $x, $x2), "errorcode" => "block_out_of_range");
 
-						$byte = ord($referenced{(int)($x2 / 8)});
+						$byte = ord($referenced[(int)($x2 / 8)]);
 						$pos = $x2 % 8;
 						if ($byte & $mask[$pos])  return array("success" => false, "error" => EFSS::Translate("Block %u references an already referenced block %u.", $x, $x2), "errorcode" => "block_already_referenced");
 
 						$byte |= $mask[$pos];
-						$referenced{(int)($x2 / 8)} = chr($byte);
+						$referenced[(int)($x2 / 8)] = chr($byte);
 					}
 
 					if ($result["type"] === EFSS_BLOCKTYPE_DIR)
@@ -2277,12 +2277,12 @@
 							{
 								if ($entry->data > $numblocks || $entry->data < 3 || $entry->data == $x)  return array("success" => false, "error" => EFSS::Translate("Directory block %u references an out of range or invalid block %u with name '%s'.", $x, $entry->data, $entry->name), "errorcode" => "block_out_of_range");
 
-								$byte = ord($referenced{(int)($entry->data / 8)});
+								$byte = ord($referenced[(int)($entry->data / 8)]);
 								$pos = $entry->data % 8;
 								if ($byte & $mask[$pos])  return array("success" => false, "error" => EFSS::Translate("Directory block %u references an already referenced block %u with name '%s'.", $x, $entry->data, $entry->name), "errorcode" => "block_already_referenced");
 
 								$byte |= $mask[$pos];
-								$referenced{(int)($entry->data / 8)} = chr($byte);
+								$referenced[(int)($entry->data / 8)] = chr($byte);
 							}
 							else if ($entry->type == EFSS_DIRTYPE_FILE)
 							{
@@ -2290,12 +2290,12 @@
 								{
 									if ($entry->data > $numblocks || $entry->data < 3 || $entry->data == $x)  return array("success" => false, "error" => EFSS::Translate("File block %u references an out of range or invalid block %u with name '%s'.", $x, $entry->data, $entry->name), "errorcode" => "block_out_of_range");
 
-									$byte = ord($referenced{(int)($entry->data / 8)});
+									$byte = ord($referenced[(int)($entry->data / 8)]);
 									$pos = $entry->data % 8;
 									if ($byte & $mask[$pos])  return array("success" => false, "error" => EFSS::Translate("File block %u references an already referenced block %u with name '%s'.", $x, $entry->data, $entry->name), "errorcode" => "block_already_referenced");
 
 									$byte |= $mask[$pos];
-									$referenced{(int)($entry->data / 8)} = chr($byte);
+									$referenced[(int)($entry->data / 8)] = chr($byte);
 								}
 							}
 						}
@@ -2312,12 +2312,12 @@
 						{
 							if ($x2 > $numblocks || $x2 < 3 || $x2 == $x)  return array("success" => false, "error" => EFSS::Translate("Block %u references an out of range or invalid block %u.", $x, $x2), "errorcode" => "block_out_of_range");
 
-							$byte = ord($referenced{(int)($x2 / 8)});
+							$byte = ord($referenced[(int)($x2 / 8)]);
 							$pos = $x2 % 8;
 							if ($byte & $mask[$pos])  return array("success" => false, "error" => EFSS::Translate("Block %u references an already referenced block %u.", $x, $x2), "errorcode" => "block_already_referenced");
 
 							$byte |= $mask[$pos];
-							$referenced{(int)($x2 / 8)} = chr($byte);
+							$referenced[(int)($x2 / 8)] = chr($byte);
 						}
 					}
 				}
@@ -2340,10 +2340,10 @@
 			$y = strlen($referenced);
 			for ($x = 0; $x < $y; $x++)
 			{
-				if (ord($referenced{$x}) !== 0xFF)
+				if (ord($referenced[$x]) !== 0xFF)
 				{
 					$blocknum = $x * 8;
-					$byte = ord($referenced{$x});
+					$byte = ord($referenced[$x]);
 					for ($x2 = 0; $x2 < 8; $x2++)
 					{
 						if (($byte & $mask[$x2]) == 0)  return array("success" => false, "error" => EFSS::Translate("Block %u is never referenced.", $x + $x2), "errorcode" => "block_not_referenced");
@@ -3281,7 +3281,7 @@
 				$result = 0;
 				for ($x = 0; $x < 8; $x++)
 				{
-					$result = ($result * 256) + ord($data{$x});
+					$result = ($result * 256) + ord($data[$x]);
 				}
 
 				return $result;
@@ -3570,7 +3570,7 @@
 					}
 					case EFSS_DIRTYPE_FILE:
 					{
-						if (($entry->permflags & EFSS_FLAG_INLINE) && strlen($entry->data) > 65535)  continue;
+						if (($entry->permflags & EFSS_FLAG_INLINE) && strlen($entry->data) > 65535)  continue 2;
 						$entry->datalen = 1 + $timestampsize + 2 + strlen($entry->name) + 2 + 2 + strlen($entry->ownername) + 2 + strlen($entry->groupname) + ($entry->permflags & EFSS_FLAG_INLINE ? 4 + 2 + strlen($entry->data) : 20);
 
 						break;
