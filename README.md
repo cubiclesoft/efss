@@ -7,7 +7,7 @@ EFSS is a [file system](http://en.wikipedia.org/wiki/File_system) with transpare
 
 Note that EFSS was originally intended to be used as a backup system.  As a result, there are references to features that are primarily only seen in backup systems (e.g. incrementals) and those references and features should be largely ignored.  For backup purposes, use [Cloud Backup](https://github.com/cubiclesoft/cloud-backup) instead.
 
-[![Donate](https://cubiclesoft.com/res/donate-shield.png)](https://cubiclesoft.com/donate/)
+[![Donate](https://cubiclesoft.com/res/donate-shield.png)](https://cubiclesoft.com/donate/) [![Discord](https://img.shields.io/discord/777282089980526602?label=chat&logo=discord)](https://cubiclesoft.com/product-support/github/)
 
 Features
 --------
